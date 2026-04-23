@@ -1,3 +1,12 @@
+
+PROJECT LIVE LINK: https://internship-demo.onrender.com/
+(The first response might take 1minute to respond as it is hosted in free render service. However once it gets started, it will work properly and will respond in time)
+
+
+API Documentation
+The interactive Swagger documentation is available at:
+https://internship-demo-backend.onrender.com/api-docs
+
 Secure Task Management System with RBAC
 
 Description
