@@ -7,6 +7,10 @@ API Documentation
 The interactive Swagger documentation is available at:
 https://internship-demo-backend.onrender.com/api-docs
 
+For the Admin Login please use the following credentials: 
+email: biswassubhranilcollege@gmail.com
+password: Admin123@
+
 Secure Task Management System with RBAC
 
 Description
