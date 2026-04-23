@@ -45,7 +45,7 @@ Run: npm start
 
 API Documentation
 The interactive Swagger documentation is available at:
-http://localhost:8080/api-docs
+https://internship-demo-backend.onrender.com/api-docs
 
 Scalability Note
 To handle production-level traffic, the following architecture is proposed:
