@@ -25,7 +25,7 @@ const LandingPage = () => {
 
     const handleOpenDocs = () => {
         // Opens Swagger UI in a new tab
-        window.open('http://localhost:8080/api-docs', '_blank'); 
+        window.open('https://internship-demo-backend.onrender.com/api-docs', '_blank'); 
     };
 
     return (

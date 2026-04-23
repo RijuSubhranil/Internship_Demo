@@ -27,7 +27,8 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT || 8080}`,
+        url: `https://internship-demo-backend.onrender.com:${process.env.PORT || 8080}`,
+        // url: `http://localhost:${process.env.PORT || 8080}`,
         description: 'Local server',
       },
     ],
