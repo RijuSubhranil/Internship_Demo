@@ -1,0 +1,616 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    z-index: 2;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-left: 5px;
+}
+
+.input-group input,
+.input-group select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    padding: 12px 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-main);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+/* Captcha Styling */
+.captcha-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.captcha-box {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    letter-spacing: 5px;
+    user-select: none;
+    font-size: 1.2rem;
+    text-decoration: line-through;
+}
+
+.refresh-captcha {
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: 0.3s;
+}
+
+.refresh-captcha:hover {
+    color: white;
+    transform: rotate(180deg);
+}
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.auth-footer span {
+    color: var(--accent-main);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Phone Grouping */
+.phone-input-group {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+}
+
+/* STEP INDICATOR */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.step.active .step-num {
+    background: var(--accent-gradient);
+    border: none;
+    color: white;
+}
+
+.step span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.step-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-glass);
+    margin-bottom: 20px;
+    /* Align with circles */
+}
+
+/* HELPER CLASSES */
+.timer-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+.resend-link {
+    color: var(--accent-main);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-text {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.btn-text:hover {
+    color: white;
+}
+
+.rotate {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* OTP GRID LAYOUT */
+.otp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.otp-box {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass) !important;
+    color: white;
+    transition: var(--transition-smooth);
+}
+
+.otp-box:focus {
+    border-color: var(--accent-main) !important;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    outline: none;
+}
+
+/* Mobile Tweak for OTP */
+@media (max-width: 400px) {
+    .otp-container {
+        gap: 5px;
+    }
+
+    .otp-box {
+        height: 45px;
+        border-radius: 8px;
+    }
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    padding: 12px 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-main);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+/* OTP SECTION */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.otp-box {
+    width: 45px;
+    height: 55px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass) !important;
+    color: white;
+}
+
+/* PASSWORD STRENGTH */
+.pass-wrapper {
+    position: relative;
+}
+
+.pass-wrapper input {
+    width: 100%;
+    padding-right: 45px !important;
+}
+
+.pass-eye {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.strength-meter {
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+/* PHONE INPUT OVERRIDES (Library Styling) */
+.phone-container-custom {
+    width: 100% !important;
+}
+
+.phone-input-custom {
+    width: 100% !important;
+    height: 48px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 12px !important;
+    color: white !important;
+    font-size: 1rem !important;
+}
+
+.phone-button-custom {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 12px 0 0 12px !important;
+}
+
+.phone-dropdown-custom {
+    background: #1a1a24 !important;
+    color: white !important;
+    border: 1px solid var(--border-glass) !important;
+}
+
+.phone-dropdown-custom li:hover {
+    background: var(--accent-main) !important;
+}
+
+/* STEP INDICATOR */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.3;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.step.active .step-num {
+    background: var(--accent-gradient);
+    border: none;
+}
+
+.step-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-glass);
+    margin: 0 10px 20px;
+}
+
+/* OTP GRID (6 Continuous Boxes) */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.otp-box {
+    width: 45px;
+    height: 55px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass) !important;
+    color: white;
+    transition: var(--transition-smooth);
+}
+
+.otp-box:focus {
+    border-color: var(--accent-main) !important;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    outline: none;
+    transform: scale(1.05);
+}
+
+/* TIMER & RESEND SECTION */
+.timer-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.timer-text span {
+    color: var(--accent-main);
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.resend-link {
+    color: var(--accent-main);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.resend-link:hover {
+    color: white;
+}
+
+/* PASSWORD WRAPPER & STRENGTH METER */
+.pass-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pass-wrapper input {
+    width: 100% !important;
+    padding-right: 45px !important;
+}
+
+.pass-eye {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.pass-eye:hover {
+    color: white;
+}
+
+.strength-meter {
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    transition: width 0.5s ease-in-out, background 0.3s;
+}
+
+/* TEXT BUTTONS (BACK ARROWS) */
+.btn-text {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-text:hover {
+    color: white;
+}
+
+/* LOADING ANIMATION */
+.rotate {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* MOBILE RESPONSIVENESS FOR OTP */
+@media (max-width: 400px) {
+    .otp-box {
+        width: 35px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .otp-container {
+        gap: 5px;
+    }
+}
+
+/* LOGIN TABS SYSTEM */
+.login-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    gap: 5px;
+}
+
+.tab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}

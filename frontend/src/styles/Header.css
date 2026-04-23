@@ -1,0 +1,356 @@
+/* ==========================================================================
+   HEADER BASE & SCROLL LOGIC
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism effect when scrolled */
+.header-scrolled {
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    height: 75px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+    width: 92%;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   DESKTOP NAVIGATION & AUTH
+   ========================================================================== */
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .desktop-nav {
+        display: block;
+    }
+}
+
+.auth-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ==========================================================================
+   USER PROFILE TRIGGER (POST-LOGIN)
+   ========================================================================== */
+.user-zone {
+    position: relative;
+}
+
+.user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 6px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.user-trigger:hover, .user-trigger.active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-main);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+.avatar {
+    background: var(--accent-gradient);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+}
+
+.user-name-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.arrow-icon {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.arrow-icon.rotate {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   PROFESSIONAL DROPDOWN CARD
+   ========================================================================== */
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 280px;
+    background: #16161e;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+}
+
+.dropdown-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 12px;
+}
+
+.header-avatar {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-main);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-info h4 {
+    font-size: 1rem;
+    margin: 0;
+    color: white;
+}
+
+.header-info p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 2px 0 0 0;
+    word-break: break-all;
+}
+
+.admin-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 8px 10px;
+}
+
+.drop-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: 0.2s;
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.drop-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.logout-btn {
+    color: #ff5f5f !important;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 95, 95, 0.08);
+}
+
+/* ==========================================================================
+   MOBILE TOGGLE & DRAWER SYSTEM
+   ========================================================================== */
+.mobile-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+@media (min-width: 1024px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
+
+/* Overlay that darkens the background */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s ease;
+    z-index: 998;
+}
+
+.mobile-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Slide-in Drawer */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #0d0d12;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    padding: 100px 24px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-drawer.open {
+    transform: translateX(-320px);
+}
+
+.drawer-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile Profile Card */
+.mobile-profile-card {
+    text-align: center;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-avatar-large {
+    width: 70px;
+    height: 70px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.mobile-profile-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.mobile-profile-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: 0.2s;
+    text-align: left;
+}
+
+.mobile-link:active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-main);
+}
+
+.logout-text {
+    color: #ff5f5f;
+    margin-top: auto; /* Push to bottom */
+}
+
+/* Animation for dropdown */
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.full-width {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+}

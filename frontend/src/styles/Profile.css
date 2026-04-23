@@ -1,0 +1,218 @@
+/* --- Variables for consistency --- */
+:root {
+  --accent-primary: #6366f1;
+  --accent-secondary: #a855f7;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --text-dim: #888;
+}
+
+/* --- Layout Structure --- */
+.dashboard-container {
+  padding: 100px 5% 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* --- Sidebar Card --- */
+.profile-sidebar {
+  padding: 40px 20px;
+  text-align: center;
+  position: sticky;
+  top: 100px;
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.profile-sidebar h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.role-badge {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.info-stack {
+  margin-top: 40px;
+  text-align: left;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* --- Main Form Section --- */
+.profile-main {
+  padding: 40px;
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.form-section-title svg {
+  color: var(--accent-primary);
+}
+
+/* --- Form Elements --- */
+.input-group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.input-group input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+.disabled-input {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* --- Phone Input Library Customization --- */
+.phone-container-custom {
+  width: 100% !important;
+}
+
+.phone-input-custom {
+  width: 100% !important;
+  height: 48px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--border-glass) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-size: 1rem !important;
+  padding-left: 55px !important;
+}
+
+.phone-input-custom:focus {
+  border-color: var(--accent-primary) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* THIS FIXES THE "WHITE BOX" IN THE PHONE DROPDOWN */
+.phone-dropdown-custom {
+  background: #111111 !important; /* Forces dark background */
+  border: 1px solid var(--border-glass) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  margin-top: 10px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.phone-dropdown-custom .country:hover {
+  background: rgba(99, 102, 241, 0.2) !important;
+}
+
+.phone-dropdown-custom .country.highlight {
+  background: var(--accent-primary) !important;
+}
+
+/* --- Animations --- */
+.rotate {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Loader Zone --- */
+.loader-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--accent-primary);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-sidebar {
+    position: static;
+    margin-bottom: 20px;
+  }
+}
