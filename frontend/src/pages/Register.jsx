@@ -112,7 +112,7 @@ const Register = () => {
             sessionStorage.setItem('token', res.data.token);
             sessionStorage.setItem('user', JSON.stringify({ email: formData.email, name: formData.name }));
             toast.success('Registration Complete!');
-            navigate('/');
+            navigate('/dashboard');
             window.location.reload();
         } catch (err) {
             toast.error(err.response?.data?.message || 'Profile setup failed');
